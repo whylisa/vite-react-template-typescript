@@ -6,7 +6,6 @@ function App() {
   const [count, setCount] = useState(0);
   debugger;
   debugger;
-  debugger;
   return (
     <div className="App">
       <header className="App-header">
