@@ -149,9 +149,15 @@
 
 ## 环境区分
 
-- 线上
-- test
-- dev
+- 更目录新建.env 文件 ,
+  然后配置
+
+  ```
+  VITE_REACT_ENV_URL=https://XXX
+
+  ```
+
+- 在组件中就可以通过 process.env.VITE_REACT_ENV_URL 获取当前 url 了
 
 ## 跨域
 
