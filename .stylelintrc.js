@@ -21,5 +21,12 @@ module.exports = {
     "no-empty-source": null,
     // 禁止缺少文件末尾的换行符
     "no-missing-end-of-source-newline": null,
+    "rule-empty-line-before": null,
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        ignorePseudoClasses: ["global"],
+      },
+    ],
   },
 };

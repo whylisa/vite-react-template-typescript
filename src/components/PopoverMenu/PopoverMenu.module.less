@@ -1,0 +1,35 @@
+.menuContent {
+  :global(.ant-popover-inner-content) {
+    padding: 4px;
+  }
+}
+
+.menuList {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: all 0.2s linear;
+  user-select: none;
+
+  &:not(.disabled):hover {
+    background: #61dafb;
+  }
+
+  &.disabled {
+    color: @disabled-color;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  :global(.anticon) {
+    flex: none;
+    margin-right: 4px;
+  }
+}

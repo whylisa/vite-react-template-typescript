@@ -33,5 +33,6 @@ module.exports = {
       { props: true, ignorePropertyModificationsFor: ["draft"] },
     ],
     "react/no-this-in-sfc": 0,
+    "react/prop-types": 0,
   },
 };

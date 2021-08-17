@@ -1,0 +1,124 @@
+//@import '~antd/es/style/themes/default.less';
+
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  //background: #eeeded url('/images/login/login-bg.png') no-repeat;
+  background-size: cover;
+}
+
+.loginLogo {
+  position: absolute;
+  top: 32px;
+  left: 64px;
+  width: 150px;
+  height: 41px;
+  //background: url('/images/login/seepln-logo.png') no-repeat;
+  background-size: cover;
+}
+
+.content {
+  width: 336px;
+  padding: 40px 24px;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  .loginTitle {
+    height: 28px;
+    color: rgba(0, 0, 0, 0.85);
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .changeWay {
+    width: 70px;
+    height: 22px;
+    color: rgba(0, 0, 0, 0.45);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    cursor: pointer;
+  }
+}
+
+.input.input {
+  height: 40px;
+  line-height: 32px;
+}
+
+.toolBox {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 24px;
+  margin-bottom: 8px;
+  line-height: 1.6;
+
+  .Checkbox {
+    width: 95px;
+    height: 20px;
+    color: rgba(0, 0, 0, 0.65);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  a {
+    width: 60px;
+    height: 20px;
+    color: rgba(0, 0, 0, 0.45);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+  }
+}
+
+.loginButton {
+  height: 40px !important;
+  margin-top: 16px;
+}
+
+.register {
+  margin-top: 16px;
+  text-align: center;
+
+  a {
+    width: 56px;
+    height: 20px;
+    color: rgba(249, 155, 11, 1);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+.phoneSelect {
+  min-width: unset;
+}
+
+.noLeftBorder {
+  border-left-width: 0 !important;
+}
+
+.phoneInput {
+  height: 40px;
+  line-height: 32px;
+
+  input {
+    height: 40px;
+  }
+}

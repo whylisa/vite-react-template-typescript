@@ -8,5 +8,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="react-ts-hook-jira" />
+    <orderEntry type="module" module-name="view-system" />
+    <orderEntry type="module" module-name="vikingship-master" />
   </component>
 </module>
