@@ -9,3 +9,4 @@
 ## 系列文章
 
 - [vite + react + ts 手摸手做项目系列一 （项目配置篇）](https://juejin.cn/post/6991728251034959885)
+- [vite + react + ts 手摸手做项目系列二 （实战篇）](https://juejin.cn/post/6997560918418653198)

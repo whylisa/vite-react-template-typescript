@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./index.module.less";
 import { Layout, Menu, Tooltip } from "antd";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   DesktopOutlined,
   PieChartOutlined,
@@ -12,7 +12,6 @@ import { formatMessage } from "../../components/locales";
 const { Header, Content, Footer, Sider } = Layout;
 const HomePage: React.FC = ({ children }) => {
   const [collapsed, setCollapsed] = useState<boolean>(false);
-
   return (
     <Layout style={{ minHeight: "100vh", width: "100%" }}>
       <Sider
@@ -24,22 +23,26 @@ const HomePage: React.FC = ({ children }) => {
         <Tooltip placement="right" title={"公众号：前端要努力"}>
           <div className={styles.logo}>{formatMessage({ id: "frontEnd" })}</div>
         </Tooltip>
-        <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
-          <Menu.Item key="11" icon={<PieChartOutlined />}>
+        <Menu
+          theme="dark"
+          defaultSelectedKeys={[`${useLocation().pathname}`]}
+          mode="inline"
+        >
+          <Menu.Item key="/doc" icon={<PieChartOutlined />}>
             <Link to={"/doc"}>文档</Link>
           </Menu.Item>
-          <Menu.Item key="1" icon={<PieChartOutlined />}>
+          <Menu.Item key="/icon" icon={<PieChartOutlined />}>
             <Link to={"/icon"}>图标</Link>
           </Menu.Item>
           <Menu.SubMenu key="sub2" icon={<DesktopOutlined />} title="组件">
-            <Menu.Item key="5">
+            <Menu.Item key="/custom">
               <Link to={"/custom"}>远程搜索框</Link>
             </Menu.Item>
           </Menu.SubMenu>
-          <Menu.Item key="9" icon={<FileOutlined />}>
+          <Menu.Item key="/locale" icon={<FileOutlined />}>
             <Link to={"/locale"}> 国际化搭建</Link>
           </Menu.Item>
-          <Menu.Item key="10" icon={<FileOutlined />}>
+          <Menu.Item key="/public" icon={<FileOutlined />}>
             <Link to={"/public"}> 复杂form&table组件</Link>
           </Menu.Item>
         </Menu>
