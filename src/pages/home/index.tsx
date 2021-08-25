@@ -27,7 +27,6 @@ const HomePage: React.FC = ({ children }) => {
         <Menu
           theme="dark"
           defaultSelectedKeys={[`${useLocation().pathname}`]}
-          // activeKey={"/table"}
           mode="inline"
         >
           <Menu.Item key="/doc" icon={<PieChartOutlined />}>
@@ -35,6 +34,9 @@ const HomePage: React.FC = ({ children }) => {
           </Menu.Item>
           <Menu.Item key="/icon" icon={<PieChartOutlined />}>
             <Link to={"/icon"}>图标</Link>
+          </Menu.Item>
+          <Menu.Item key="/auth" icon={<PieChartOutlined />}>
+            <Link to={"/auth"}>权限</Link>
           </Menu.Item>
           <Menu.SubMenu key="sub2" icon={<DesktopOutlined />} title="组件">
             <Menu.Item key="/custom">

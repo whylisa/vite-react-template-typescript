@@ -1,3 +1,3 @@
-import Authorized from "./Authorized";
+import AuthorizedButton from "./AuthorizedButton";
 
-export default Authorized;
+export { AuthorizedButton };

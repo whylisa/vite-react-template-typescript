@@ -10,16 +10,14 @@ export type IAuthorityType =
 
 /**
  * 通用权限检查方法
- * @param authority - 权限判定
+ * @param authority - 按钮权限判定
  * @param permissions - 当前权限
- * @param term - 条件 OR | undefined，默认 AND
  * @param target - 通过的组件
  * @param Exception - 未通过的组件
  */
 const checkPermissions = <T, K>(
   authority: IAuthorityType,
   permissions: string[] = [],
-  term: "OR" | undefined,
   target: T,
   Exception: K
 ): T | K | React.ReactNode => {
@@ -30,10 +28,13 @@ const checkPermissions = <T, K>(
   }
   // 数组处理
   if (Array.isArray(authority)) {
-    if (term === "OR" && permissions.some((item) => authority.includes(item))) {
+    if (permissions.some((item) => authority.includes(item))) {
       return target;
     }
-    if (permissions.every((item) => authority.includes(item))) {
+    if (
+      permissions.length > 0 &&
+      permissions.every((item) => authority.includes(item))
+    ) {
       return target;
     }
     return Exception;

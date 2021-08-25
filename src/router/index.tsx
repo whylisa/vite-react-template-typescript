@@ -12,6 +12,7 @@ import TableList from "@/pages/table";
 import TableEdit from "@/pages/table/edit";
 import TableDrag from "@/pages/table/drag";
 import PrivateRoute from "./components/privateRouter";
+import AuthPage from "@/pages/auth";
 
 const RouterPage = () => {
   return (
@@ -31,6 +32,7 @@ const RouterPage = () => {
                 <PrivateRoute path="/table/base" component={TableList} />
                 <PrivateRoute path="/table/edit" component={TableEdit} />
                 <PrivateRoute path="/table/drag" component={TableDrag} />
+                <PrivateRoute path="/auth" component={AuthPage} />
                 <Redirect to="/home" />
               </Switch>
             </HomePage>
