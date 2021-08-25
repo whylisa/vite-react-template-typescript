@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../培训/react-ts-hook-jira/.idea/react-ts-hook-jira.iml" filepath="$PROJECT_DIR$/../培训/react-ts-hook-jira/.idea/react-ts-hook-jira.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../new/view-system/.idea/view-system.iml" filepath="$PROJECT_DIR$/../../new/view-system/.idea/view-system.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../vikingship-master/.idea/vikingship-master.iml" filepath="$PROJECT_DIR$/../vikingship-master/.idea/vikingship-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/why-react.iml" filepath="$PROJECT_DIR$/.idea/why-react.iml" />
     </modules>
   </component>

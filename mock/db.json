@@ -7,6 +7,8 @@
   "login": {
     "code": 200,
     "message": "恭喜你登陆成功！",
-    "token": "前端要努力，加油，你已经有权限了"
+    "token": "前端要努力，加油，你已经有权限了",
+    "ButtonAuth": ["a", "b", "c"],
+    "RouterAuth": ["/home", "/doc"]
   }
 }

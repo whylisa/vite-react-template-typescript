@@ -11,6 +11,7 @@ import { formatMessage } from "../../components/locales";
 
 const { Header, Content, Footer, Sider } = Layout;
 const HomePage: React.FC = ({ children }) => {
+  // 收缩侧边栏
   const [collapsed, setCollapsed] = useState<boolean>(false);
   return (
     <Layout style={{ minHeight: "100vh", width: "100%" }}>
@@ -26,6 +27,7 @@ const HomePage: React.FC = ({ children }) => {
         <Menu
           theme="dark"
           defaultSelectedKeys={[`${useLocation().pathname}`]}
+          // activeKey={"/table"}
           mode="inline"
         >
           <Menu.Item key="/doc" icon={<PieChartOutlined />}>
@@ -42,14 +44,22 @@ const HomePage: React.FC = ({ children }) => {
           <Menu.Item key="/locale" icon={<FileOutlined />}>
             <Link to={"/locale"}> 国际化搭建</Link>
           </Menu.Item>
-          <Menu.Item key="/public" icon={<FileOutlined />}>
-            <Link to={"/public"}> 复杂form&table组件</Link>
-          </Menu.Item>
+          <Menu.SubMenu key="/table" icon={<DesktopOutlined />} title="表格">
+            <Menu.Item key="/table/base">
+              <Link to={"/table/base"}>基础表格</Link>
+            </Menu.Item>{" "}
+            <Menu.Item key="/table/drag">
+              <Link to={"/table/drag"}>拖拽表格</Link>
+            </Menu.Item>{" "}
+            <Menu.Item key="/table/edit">
+              <Link to={"/table/edit"}>编辑表格</Link>
+            </Menu.Item>
+          </Menu.SubMenu>
         </Menu>
       </Sider>
       <Layout className="site-layout">
         <Header className="site-layout-background" style={{ padding: 0 }} />
-        <Content style={{ margin: "0 16px" }}>{children}</Content>
+        <Content style={{ margin: "16px 16px" }}>{children}</Content>
         <Footer style={{ textAlign: "center" }}>
           vite-react-template ©2021 Created by 公众号：前端要努力
           ；微信号843655240

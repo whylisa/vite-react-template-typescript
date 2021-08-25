@@ -15,6 +15,7 @@ const LoginPassword: React.FC<ILoginParams> = ({ updateWay }) => {
   function handleFinish(data: { [name: string]: any }) {
     loginApp({ userName: "why", pwd: "123" }).then((res) => {
       if (res.code === 200) {
+        sessionStorage.setItem("token", "我有权限了");
         history.push("/home");
       } else {
         message.error("用户名或密码错误！");

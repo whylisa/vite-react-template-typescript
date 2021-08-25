@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import reactRefresh from "@vitejs/plugin-react-refresh";
 import { apiAddress, proxyApi } from "./src/config";
+import * as path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -14,6 +15,11 @@ export default defineConfig({
         secure: false,
         rewrite: (p) => p.replace(/^\/api/, ""),
       },
+    },
+  },
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "src"),
     },
   },
   css: {

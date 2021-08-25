@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./index.module.less";
-import { Card, Radio } from "antd";
-import { RadioChangeEvent } from "antd/lib/radio/interface";
+import { Card, Radio, RadioChangeEvent } from "antd";
 import { formatMessage, setLocale } from "../../components/locales";
 
 /**

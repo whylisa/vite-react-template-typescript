@@ -1,12 +1,17 @@
 import React from "react";
 import { HashRouter, Redirect, Route, Switch } from "react-router-dom";
-import LoginPage from "../pages/login";
-import HomePage from "../pages/home";
-import PublicPage from "../pages/publicComponents";
-import CustomPage from "../pages/customHooks";
-import LocalePage from "../pages/locales";
-import IconPage from "../pages/icon";
-import DocPage from "../pages/doc";
+
+import HomePage from "@/pages/home";
+import LoginPage from "@/pages/login";
+import DocPage from "@/pages/doc";
+import PublicPage from "@/pages/publicComponents";
+import CustomPage from "@/pages/customHooks";
+import LocalePage from "@/pages/locales";
+import IconPage from "@/pages/icon";
+import TableList from "@/pages/table";
+import TableEdit from "@/pages/table/edit";
+import TableDrag from "@/pages/table/drag";
+import PrivateRoute from "./components/privateRouter";
 
 const RouterPage = () => {
   return (
@@ -18,11 +23,14 @@ const RouterPage = () => {
           render={() => (
             <HomePage>
               <Switch>
-                <Route path="/doc" component={DocPage} />
-                <Route path="/home" component={PublicPage} />
-                <Route path="/custom" component={CustomPage} />
-                <Route path="/locale" component={LocalePage} />
-                <Route path="/icon" component={IconPage} />
+                <PrivateRoute path="/doc" component={DocPage} />
+                <PrivateRoute path="/home" component={PublicPage} />
+                <PrivateRoute path="/custom" component={CustomPage} />
+                <PrivateRoute path="/locale" component={LocalePage} />
+                <PrivateRoute path="/icon" component={IconPage} />
+                <PrivateRoute path="/table/base" component={TableList} />
+                <PrivateRoute path="/table/edit" component={TableEdit} />
+                <PrivateRoute path="/table/drag" component={TableDrag} />
                 <Redirect to="/home" />
               </Switch>
             </HomePage>
