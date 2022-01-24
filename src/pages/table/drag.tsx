@@ -6,7 +6,7 @@ import {
   SortableHandle,
 } from "react-sortable-hoc";
 import { MenuOutlined } from "@ant-design/icons";
-import { arrayMoveImmutable } from "array-move";
+// import { arrayMoveImmutable } from "array-move";
 import { ColumnsType } from "antd/lib/table";
 
 const DragHandle = SortableHandle(() => {
@@ -78,12 +78,12 @@ const TableDrag: React.FC = () => {
     newIndex: number;
   }) => {
     if (oldIndex !== newIndex) {
-      const newData = arrayMoveImmutable(
-        [].concat(dataSource),
-        oldIndex,
-        newIndex
-      ).filter((el) => !!el);
-      setDataSource(newData);
+      // const newData = arrayMoveImmutable(
+      //   [].concat(dataSource),
+      //   oldIndex,
+      //   newIndex
+      // ).filter((el) => !!el);
+      // setDataSource(newData);
     }
   };
 

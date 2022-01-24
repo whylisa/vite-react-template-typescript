@@ -5,7 +5,7 @@ import HomePage from "@/pages/home";
 import LoginPage from "@/pages/login";
 import DocPage from "@/pages/doc";
 import PublicPage from "@/pages/publicComponents";
-import CustomPage from "@/pages/customHooks";
+import CustomPage from "@/pages/testPlugin";
 import LocalePage from "@/pages/locales";
 import IconPage from "@/pages/icon";
 import TableList from "@/pages/table";
