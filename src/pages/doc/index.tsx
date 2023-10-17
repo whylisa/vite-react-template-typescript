@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import styles from "./index.module.less";
-import { Tooltip } from "antd";
+import React, { useState } from 'react';
+import { Tooltip } from 'antd';
+import styles from './index.module.less';
 
 const DocPage: React.FC = ({ children }) => {
   return (
-    <Tooltip placement="top" color={"red"} title={"谢谢你的关注，你很眼光"}>
+    <Tooltip placement="top" color={'red'} title={'谢谢你的关注，你很眼光'}>
       <div className={styles.doc}>
         <div>掘金</div>
         <div>github</div>

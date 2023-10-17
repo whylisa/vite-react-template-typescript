@@ -1,7 +1,7 @@
-import React from "react";
-import { Button, Col, Form, Input, Row, Table, Select } from "antd";
-import { useAntdTable } from "ahooks";
-import { PaginatedParams } from "ahooks/lib/useAntdTable";
+import React from 'react';
+import { Button, Col, Form, Input, Row, Table, Select } from 'antd';
+import { useAntdTable } from 'ahooks';
+import type { PaginatedParams } from 'ahooks/lib/useAntdTable';
 
 const { Option } = Select;
 
@@ -11,7 +11,7 @@ interface Item {
   };
   email: string;
   phone: string;
-  gender: "male" | "female";
+  gender: 'male' | 'female';
 }
 
 interface Result {
@@ -21,7 +21,7 @@ interface Result {
 
 const getTableData = (
   { current, pageSize }: PaginatedParams[0],
-  formData: Record<string, any>
+  formData: Record<string, any>,
 ): Promise<Result> => {
   let query = `page=${current}&size=${pageSize}`;
   Object.entries(formData).forEach(([key, value]) => {
@@ -50,20 +50,20 @@ const TableEdit: React.FC = () => {
 
   const columns = [
     {
-      title: "姓名",
-      dataIndex: ["name", "last"],
+      title: '姓名',
+      dataIndex: ['name', 'last'],
     },
     {
-      title: "邮箱",
-      dataIndex: "email",
+      title: '邮箱',
+      dataIndex: 'email',
     },
     {
-      title: "电话",
-      dataIndex: "phone",
+      title: '电话',
+      dataIndex: 'phone',
     },
     {
-      title: "性别",
-      dataIndex: "gender",
+      title: '性别',
+      dataIndex: 'gender',
     },
   ];
 
@@ -88,7 +88,7 @@ const TableEdit: React.FC = () => {
           </Col>
         </Row>
         <Row>
-          <Form.Item style={{ display: "flex", justifyContent: "flex-end" }}>
+          <Form.Item style={{ display: 'flex', justifyContent: 'flex-end' }}>
             <Button type="primary" onClick={submit}>
               查询
             </Button>
@@ -106,7 +106,7 @@ const TableEdit: React.FC = () => {
 
   const searchForm = (
     <div style={{ marginBottom: 16 }}>
-      <Form form={form} style={{ display: "flex", justifyContent: "flex-end" }}>
+      <Form form={form} style={{ display: 'flex', justifyContent: 'flex-end' }}>
         <Form.Item name="gender">
           <Select style={{ width: 120, marginRight: 16 }} onChange={submit}>
             <Option value="">全部</Option>
@@ -115,11 +115,7 @@ const TableEdit: React.FC = () => {
           </Select>
         </Form.Item>
         <Form.Item name="name">
-          <Input.Search
-            placeholder="输入姓名"
-            style={{ width: 240 }}
-            onSearch={submit}
-          />
+          <Input.Search placeholder="输入姓名" style={{ width: 240 }} onSearch={submit} />
         </Form.Item>
         <Button type="link" onClick={changeType}>
           高级查询
@@ -130,7 +126,7 @@ const TableEdit: React.FC = () => {
 
   return (
     <div>
-      {type === "simple" ? searchForm : advanceSearchForm}
+      {type === 'simple' ? searchForm : advanceSearchForm}
       <Table columns={columns} rowKey="email" {...tableProps} />
     </div>
   );

@@ -1,10 +1,8 @@
-import React from "react";
-import { isEqual } from "lodash";
-import Spinner from "@/components/Spinner";
+import React from 'react';
+import { isEqual } from 'lodash';
+import Spinner from '@/components/Spinner';
 
-export const isComponentClass = (
-  component: React.ComponentClass | React.ReactNode
-): boolean => {
+export const isComponentClass = (component: React.ComponentClass | React.ReactNode): boolean => {
   if (!component) return false;
   const proto = Object.getPrototypeOf(component);
   if (proto === React.Component || proto === Function.prototype) return true;
@@ -33,10 +31,7 @@ export default class PromiseRender<T, K> extends React.Component<
     this.setRenderComponent(this.props);
   }
 
-  shouldComponentUpdate = (
-    nextProps: PromiseRenderProps<T, K>,
-    nextState: PromiseRenderState
-  ) => {
+  shouldComponentUpdate = (nextProps: PromiseRenderProps<T, K>, nextState: PromiseRenderState) => {
     const { component } = this.state;
     if (!isEqual(nextProps, this.props)) {
       this.setRenderComponent(nextProps);
@@ -67,7 +62,7 @@ export default class PromiseRender<T, K> extends React.Component<
   // Authorized  render is already instantiated, children is no instantiated
   // Secured is not instantiated
   checkIsInstantiation = (
-    target: React.ReactNode | React.ComponentClass
+    target: React.ReactNode | React.ComponentClass,
   ): React.FunctionComponent => {
     if (isComponentClass(target)) {
       const Target = target as React.ComponentClass;

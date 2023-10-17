@@ -1,13 +1,12 @@
-import React, { useState } from "react";
-import ConfigProvider from "antd/lib/config-provider";
-import "antd/dist/antd.less";
-import style from "./App.module.less";
-import RouterPage from "./router";
-import { getLocale, localeInfo, LocaleProvider } from "./components/locales";
+import React from 'react';
+import { ConfigProvider } from 'antd';
+import 'antd/dist/antd.less';
+import style from './App.module.less';
+import RouterPage from './router';
+import { getLocale, localeInfo, LocaleProvider } from './components/locales';
 
 /**
  * 入口
- * @constructor
  */
 function App() {
   return (

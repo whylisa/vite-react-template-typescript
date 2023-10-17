@@ -1,5 +1,5 @@
-import PopoverMenu from "./PopoverMenu";
+import PopoverMenu from './PopoverMenu';
 
-export * from "./PopoverMenu";
+export * from './PopoverMenu';
 
 export default PopoverMenu;

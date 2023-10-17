@@ -1,12 +1,11 @@
-import React from "react";
-import { Popover } from "antd";
-import { useActivate, useUnactivate } from "react-activation";
-import classNames from "classnames";
-import { PopoverProps } from "antd/es/popover";
-import styles from "./PopoverMenu.module.less";
+import React from 'react';
+import { Popover } from 'antd';
+import { useActivate, useUnactivate } from 'react-activation';
+import classNames from 'classnames';
+import type { PopoverProps } from 'antd/es/popover';
+import styles from './PopoverMenu.module.less';
 
-export interface PopoverMenuProps
-  extends Omit<PopoverProps, "overlayClassName" | "overlay"> {
+export interface PopoverMenuProps extends Omit<PopoverProps, 'overlayClassName' | 'overlay'> {
   zIndex?: number;
   content: React.ReactNode;
 }
@@ -57,11 +56,7 @@ export function PopoverMenuItem({
 }: PopoverMenuItemProps) {
   return (
     <li
-      className={classNames(
-        styles.menuItem,
-        { [styles.disabled]: disabled },
-        className
-      )}
+      className={classNames(styles.menuItem, { [styles.disabled]: disabled }, className)}
       {...props}
     >
       {children}

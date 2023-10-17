@@ -1,4 +1,4 @@
-import { whyRequest } from "../utils/reuqest";
+import { whyRequest } from '../utils/reuqest';
 
 /**
  * 登陆请求数据类型
@@ -24,5 +24,5 @@ export interface ILoginData {
  * @param params
  */
 export const loginApp = (params: ILogin): Promise<ILoginData> => {
-  return whyRequest.get("/login", params);
+  return whyRequest.get('/login', params);
 };

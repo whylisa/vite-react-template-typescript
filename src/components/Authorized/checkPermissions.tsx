@@ -1,5 +1,5 @@
-import React from "react";
-import PromiseRender from "./PromiseRender";
+import React from 'react';
+import PromiseRender from './PromiseRender';
 
 export type IAuthorityType =
   | undefined
@@ -19,7 +19,7 @@ const checkPermissions = <T, K>(
   authority: IAuthorityType,
   permissions: string[] = [],
   target: T,
-  Exception: K
+  Exception: K,
 ): T | K | React.ReactNode => {
   // 没有判定权限.默认查看所有
   // Retirement authority, return target;
@@ -31,16 +31,13 @@ const checkPermissions = <T, K>(
     if (permissions.some((item) => authority.includes(item))) {
       return target;
     }
-    if (
-      permissions.length > 0 &&
-      permissions.every((item) => authority.includes(item))
-    ) {
+    if (permissions.length > 0 && permissions.every((item) => authority.includes(item))) {
       return target;
     }
     return Exception;
   }
   // string 处理
-  if (typeof authority === "string") {
+  if (typeof authority === 'string') {
     if (permissions.some((item) => authority === item)) {
       return target;
     }
@@ -48,21 +45,15 @@ const checkPermissions = <T, K>(
   }
   // Promise 处理
   if (authority instanceof Promise) {
-    return (
-      <PromiseRender<T, K> ok={target} error={Exception} promise={authority} />
-    );
+    return <PromiseRender<T, K> ok={target} error={Exception} promise={authority} />;
   }
   // Function 处理
-  if (typeof authority === "function") {
+  if (typeof authority === 'function') {
     const promise = authority(permissions);
     // 函数执行后返回值是 Promise
     if ((promise as Promise<boolean>) instanceof Promise) {
       return (
-        <PromiseRender<T, K>
-          ok={target}
-          error={Exception}
-          promise={promise as Promise<boolean>}
-        />
+        <PromiseRender<T, K> ok={target} error={Exception} promise={promise as Promise<boolean>} />
       );
     }
     if (promise) {
@@ -70,7 +61,7 @@ const checkPermissions = <T, K>(
     }
     return Exception;
   }
-  throw new Error("Unsupported parameters");
+  throw new Error('Unsupported parameters');
 };
 
 export default checkPermissions;

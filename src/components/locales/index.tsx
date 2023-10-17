@@ -1,22 +1,22 @@
-import React from "react";
-import type { IntlShape } from "react-intl";
-import { createIntl, IntlProvider } from "react-intl";
+import React from 'react';
+import type { IntlShape } from 'react-intl';
+import { createIntl, IntlProvider } from 'react-intl';
 // 我们需要引入antd 的国际化的配置
-import antdEnUS from "antd/lib/locale/en_US";
-import antdZhCN from "antd/lib/locale/zh_CN";
+import antdEnUS from 'antd/lib/locale/en_US';
+import antdZhCN from 'antd/lib/locale/zh_CN';
 // 这是我们项目中中英文的配置，
-import enLn from "./components/ln-en";
-import zhLn from "./components/ln-zh-cn";
+import enLn from './components/ln-en';
+import zhLn from './components/ln-zh-cn';
 
 let gIntl: IntlShape;
 // 默认语言
-let defaultLanguage = "zh-cn";
+let defaultLanguage = 'zh-cn';
 // 当前使用的语言
-const currentLocalName = localStorage.getItem("why__locale") || defaultLanguage;
+const currentLocalName = localStorage.getItem('why__locale') || defaultLanguage;
 
 // 本地未存储语言配置，默认添加一个
-if (!localStorage.getItem("why__locale")) {
-  localStorage.setItem("why__locale", defaultLanguage);
+if (!localStorage.getItem('why__locale')) {
+  localStorage.setItem('why__locale', defaultLanguage);
 }
 
 /**
@@ -25,15 +25,15 @@ if (!localStorage.getItem("why__locale")) {
 export const localeInfo: Record<string, any> = {
   en: {
     messages: enLn,
-    locale: "en",
+    locale: 'en',
     antd: antdEnUS,
-    momentLocale: "",
+    momentLocale: '',
   },
-  "zh-cn": {
+  'zh-cn': {
     messages: zhLn,
-    locale: "zh-cn",
+    locale: 'zh-cn',
     antd: antdZhCN,
-    momentLocale: "zh-cn",
+    momentLocale: 'zh-cn',
   },
 };
 
@@ -74,19 +74,18 @@ const getIntl = (locale?: string, changeIntl?: boolean) => {
   }
 
   // 使用默认语言
-  if (localeInfo[defaultLanguage])
-    return createIntl(localeInfo[defaultLanguage]);
+  if (localeInfo[defaultLanguage]) return createIntl(localeInfo[defaultLanguage]);
   // 使用 zh-CN
-  if (localeInfo["zh-cn"]) return createIntl(localeInfo["zh-cn"]);
+  if (localeInfo['zh-cn']) return createIntl(localeInfo['zh-cn']);
   // 抛错
   if (!locale || !!localeInfo[locale]) {
     throw new Error(
-      "The current popular language does not exist, please check the locales folder!"
+      'The current popular language does not exist, please check the locales folder!',
     );
   }
   // 如果还没有，返回一个空的
   return createIntl({
-    locale: "zh-cn",
+    locale: 'zh-cn',
     messages: {},
   });
 };
@@ -114,8 +113,8 @@ export function getLocale() {
  */
 export const setLocale = (lang: string) => {
   // if (getStorageLocale() !== lang) {
-  if (typeof window.localStorage !== "undefined") {
-    window.localStorage.setItem("why__locale", lang || "");
+  if (typeof window.localStorage !== 'undefined') {
+    window.localStorage.setItem('why__locale', lang || '');
   }
   window.location.reload();
   // }
@@ -132,10 +131,7 @@ interface MessageDescriptor {
  * @param descriptor
  * @param values
  */
-export const formatMessage = (
-  descriptor: MessageDescriptor,
-  values?: Record<string, any>
-) => {
+export const formatMessage = (descriptor: MessageDescriptor, values?: Record<string, any>) => {
   if (!gIntl) {
     setIntl(getLocale());
   }

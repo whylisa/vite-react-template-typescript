@@ -1,3 +1,3 @@
-import AuthorizedButton from "./AuthorizedButton";
+import AuthorizedButton from './AuthorizedButton';
 
 export { AuthorizedButton };

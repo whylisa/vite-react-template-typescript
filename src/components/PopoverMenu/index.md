@@ -6,9 +6,9 @@
 2. `Dropdown` 中 `Menu` 的自节点无法自定义
 
 ```tsx
-import React from "react";
-import Icon from "@/components/Icon";
-import PopoverMenu, { PopoverMenuItem } from "@/components/PopoverMenu";
+import React from 'react';
+import Icon from '@/components/Icon';
+import PopoverMenu, { PopoverMenuItem } from '@/components/PopoverMenu';
 
 export default () => {
   return (
@@ -18,12 +18,12 @@ export default () => {
         <>
           <PopoverMenuItem>
             <Icon type="icon-move" />
-            {formatMessage({ id: "batchMove" })}
+            {formatMessage({ id: 'batchMove' })}
           </PopoverMenuItem>
 
           <PopoverMenuItem disabled>
             <Icon type="icon-delete" />
-            {formatMessage({ id: "batchDelete" })}
+            {formatMessage({ id: 'batchDelete' })}
           </PopoverMenuItem>
         </>
       }
