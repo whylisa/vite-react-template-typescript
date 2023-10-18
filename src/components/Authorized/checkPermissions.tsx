@@ -17,7 +17,7 @@ export type IAuthorityType =
  */
 const checkPermissions = <T, K>(
   authority: IAuthorityType,
-  permissions: string[] = [],
+  permissions: string[],
   target: T,
   Exception: K,
 ): T | K | React.ReactNode => {

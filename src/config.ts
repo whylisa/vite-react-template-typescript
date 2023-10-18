@@ -20,3 +20,5 @@ export const proxyApi = '/api';
  * 生产环境不需要代理，同时本地配置的代理在生产环境也是不能用的
  */
 export const urlPrefix = process.env.NODE_ENV === 'development' ? proxyApi : '';
+
+export const LOCALE_KEY = 'why_locale';

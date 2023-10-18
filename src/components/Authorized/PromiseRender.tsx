@@ -41,8 +41,8 @@ export default class PromiseRender<T, K> extends React.Component<
 
   // set render Component : ok or error
   setRenderComponent(props: PromiseRenderProps<T, K>) {
-    const ok = this.checkIsInstantiation(props.ok);
-    const error = this.checkIsInstantiation(props.error);
+    const ok = this.checkIsInstantiation(props.ok as React.ReactNode);
+    const error = this.checkIsInstantiation(props.error as React.ReactNode);
     props.promise
       .then(() => {
         this.setState({

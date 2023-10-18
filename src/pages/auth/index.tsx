@@ -3,7 +3,7 @@ import { Button } from 'antd';
 import { AuthorizedButton } from '@/components/Authorized';
 import styles from './index.module.less';
 
-const AuthPage: React.FC = () => {
+export function Component() {
   return (
     <>
       <div className={styles.noAuth}>
@@ -25,6 +25,4 @@ const AuthPage: React.FC = () => {
       </div>
     </>
   );
-};
-
-export default AuthPage;
+}

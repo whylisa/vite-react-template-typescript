@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button, Col, Form, Input, Row, Table, Select } from 'antd';
 import { useAntdTable } from 'ahooks';
-import type { PaginatedParams } from 'ahooks/lib/useAntdTable';
 import type { ColumnsType } from 'antd/lib/table';
 
 const { Option } = Select;
@@ -21,7 +20,7 @@ interface Result {
 }
 
 const getTableData = (
-  { current, pageSize }: PaginatedParams[0],
+  { current, pageSize }: { current: number; pageSize: number },
   formData: Record<string, any>,
 ): Promise<Result> => {
   let query = `page=${current}&size=${pageSize}`;
@@ -39,7 +38,7 @@ const getTableData = (
     }));
 };
 
-const TableList: React.FC = () => {
+export function Component() {
   const [form] = Form.useForm();
 
   const { tableProps, search } = useAntdTable(getTableData, {
@@ -49,7 +48,7 @@ const TableList: React.FC = () => {
 
   const { type, changeType, submit, reset } = search;
 
-  const columns: ColumnsType<any> = [
+  const columns: ColumnsType<Item> = [
     {
       title: '姓名',
       dataIndex: ['name', 'last'],
@@ -131,6 +130,4 @@ const TableList: React.FC = () => {
       <Table columns={columns} rowKey="email" {...tableProps} />
     </div>
   );
-};
-
-export default TableList;
+}

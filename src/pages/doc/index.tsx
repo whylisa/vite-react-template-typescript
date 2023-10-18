@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Tooltip } from 'antd';
+import { t } from '@lingui/macro';
 import styles from './index.module.less';
 
-const DocPage: React.FC = ({ children }) => {
+export const Component = () => {
   return (
-    <Tooltip placement="top" color={'red'} title={'谢谢你的关注，你很眼光'}>
+    <Tooltip placement="top" color="red" title={t`谢谢你的关注，你很眼光`}>
       <div className={styles.doc}>
         <div>掘金</div>
         <div>github</div>
@@ -13,5 +14,3 @@ const DocPage: React.FC = ({ children }) => {
     </Tooltip>
   );
 };
-
-export default DocPage;

@@ -2,17 +2,28 @@ import React, { useState } from 'react';
 import { Table } from 'antd';
 import { SortableContainer, SortableElement, SortableHandle } from 'react-sortable-hoc';
 import { MenuOutlined } from '@ant-design/icons';
-// import { arrayMoveImmutable } from "array-move";
 import type { ColumnsType } from 'antd/lib/table';
+import { $splice } from 'immot';
 
 const DragHandle = SortableHandle(() => {
   return <MenuOutlined style={{ cursor: 'grab', color: '#999' }} />;
 });
-const SortableItem = SortableElement((props: React.AllHTMLAttributes<any>) => <tr {...props} />);
-const SortableContainers = SortableContainer((props: React.AllHTMLAttributes<any>) => {
+const SortableItem = SortableElement((props: React.AllHTMLAttributes<HTMLElement>) => (
+  <tr {...props} />
+));
+const SortableContainers = SortableContainer((props: React.AllHTMLAttributes<HTMLElement>) => {
   return <tbody {...props} />;
 });
-const columns: ColumnsType<any> = [
+
+interface DataItem {
+  key: string;
+  name: string;
+  age: number;
+  address: string;
+  index: number;
+}
+
+const columns: ColumnsType<DataItem> = [
   {
     title: 'Sort',
     dataIndex: 'sort',
@@ -36,6 +47,7 @@ const columns: ColumnsType<any> = [
     dataIndex: 'address',
   },
 ];
+
 const data = [
   {
     key: '1',
@@ -60,16 +72,11 @@ const data = [
   },
 ];
 
-const TableDrag: React.FC = () => {
-  const [dataSource, setDataSource] = useState<any>(data);
+export function Component() {
+  const [dataSource, setDataSource] = useState<DataItem[]>(data);
   const onSortEnd = ({ oldIndex, newIndex }: { oldIndex: number; newIndex: number }) => {
     if (oldIndex !== newIndex) {
-      // const newData = arrayMoveImmutable(
-      //   [].concat(dataSource),
-      //   oldIndex,
-      //   newIndex
-      // ).filter((el) => !!el);
-      // setDataSource(newData);
+      setDataSource($splice($splice(dataSource, oldIndex, 1), newIndex, 0, dataSource[oldIndex]));
     }
   };
 
@@ -87,7 +94,7 @@ const TableDrag: React.FC = () => {
 
   const DraggableBodyRow = ({ className, style, ...restProps }: any) => {
     // function findIndex base on Table rowKey props and should always be a right array index
-    const index = dataSource.findIndex((x: any) => x.index === restProps['data-row-key']);
+    const index = dataSource.findIndex((x) => x.index === restProps['data-row-key']);
     return <SortableItem index={index} {...restProps} />;
   };
   return (
@@ -104,5 +111,4 @@ const TableDrag: React.FC = () => {
       }}
     />
   );
-};
-export default TableDrag;
+}

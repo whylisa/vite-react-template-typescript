@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import type { IAuthorityType } from './checkPermissions';
 import checkPermissions from './checkPermissions';
 

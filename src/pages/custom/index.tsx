@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button, message, Space } from 'antd';
 import { useStore } from 'rediaox';
-import styles from './index.module.less';
-import Icon from '../../components/Icon';
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-const CustomPage: React.FC = ({ children }) => {
+
+export const Component = () => {
   const [state, actions] = useStore({
     state: {
       count: 0,
@@ -56,5 +55,3 @@ const CustomPage: React.FC = ({ children }) => {
     </Space>
   );
 };
-
-export default CustomPage;
