@@ -7,25 +7,20 @@
 ## 按钮级别权限判断
 
 ```tsx | pure
-import React from "react";
-import Authorized from "@/components/Authorized";
+import React from 'react';
+import Authorized from '@/components/Authorized';
 
 export default function Demo() {
   return (
     <>
       <AuthorizedButton authority="hello">Hello world</AuthorizedButton>
-      <AuthorizedButton authority={["hello", "word"]}>
-        Hello world
-      </AuthorizedButton>
+      <AuthorizedButton authority={['hello', 'word']}>Hello world</AuthorizedButton>
       <AuthorizedButton
-        authority={["hello", "word"]}
+        authority={['hello', 'word']}
         term="OR"
         render={() => <div>Hello world</div>}
       />
-      <AuthorizedButton
-        authority={() => true}
-        render={() => <div>Hello world</div>}
-      />
+      <AuthorizedButton authority={() => true} render={() => <div>Hello world</div>} />
     </>
   );
 }

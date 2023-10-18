@@ -1,0 +1,6 @@
+es/
+dist/
+build/
+*.svg
+*.json
+*.png

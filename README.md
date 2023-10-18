@@ -1,9 +1,9 @@
 ## 启动
 
-- 依赖安装：yarn
-- 本地启动项目：yarn dev
-- 要登陆需要运行：yarn mock
-  - 不然无法登陆
+- 依赖安装：pnpm i
+- 本地启动项目：pnpm dev
+- 要登陆需要运行：pnpm mock
+  - 不然无法登录
 
 ## 教程
 
@@ -24,13 +24,13 @@
 - less: 项目中 less 文件的命名都要以 module.less 结尾
 
   ```
-  yarn add less
+  pnpm i less
   ```
 
 - git 代码提交校验,
 
   ```
-  yarn add yorkie lint-staged -D
+  pnpm i yorkie lint-staged -D
   ```
 
   - 使用的 yorkie 没有使用 husky,yorkie 是 yyds fork husky 出来的,
@@ -43,11 +43,11 @@
 - eslint 多人代码规范的重要性我就不再赘述了，非常非常重要
 
   ```
-  eslint yarn add eslint -D
+  eslint pnpm i eslint -D
   // 然后终端运行
   npx eslint --init
 
-  // 项目根目录会自动新建.eslintrc.js文件 注意：不要用自带的npm安装会装不了对应插件
+  // 项目根目录会自动新建.eslintrc.cjs文件 注意：不要用自带的npm安装会装不了对应插件
    module.exports = {
      env: {
        browser: true,
@@ -93,7 +93,7 @@
 
   - 它和 Linter 系列比如 ESLint 的区别在于 Prettier 是一个专注于代码格式化的工具，对代码不做质量检查，但是如果团队规则不统一，你就知道什么叫一拉代码一篇红的感觉
     ```
-    yarn add prettier -D
+    pnpm i prettier -D
     ```
 
 - stylelint
@@ -102,8 +102,8 @@
   - 很多小伙伴可能没有什么概念 请参考[css 样式的书写顺序及原理——很重要！](https://blog.csdn.net/qq_36060786/article/details/79311244)
   ```
   // 终端运行
-  yarn add stylelint stylelint-config-standard -D
-  // .stylelintrc.js 配置
+  pnpm i stylelint stylelint-config-standard -D
+  // .stylelintrc.cjs 配置
     module.exports = {
     extends: "stylelint-config-standard",
     rules: {
@@ -213,7 +213,7 @@
 
 ## json-server mock 数据
 
-- yarn add json-server -D
+- pnpm i json-server -D
 - 在终端
   ```
   mkdir mock
@@ -287,7 +287,7 @@ export default umiRequest;
 /**
 * 登陆请求数据类型
 */
-export interface ILogin {
+export interface LoginParams {
   userName: string;
   pwd: string;
 }
@@ -297,7 +297,7 @@ export interface ILogin {
 * 要提前和后段定义好类型，等接口写完直接替换地址就好了
 *
 */
-export interface ILoginData {
+export interface LoginResult {
 code: number;
 message: string;
 token: string;
@@ -307,7 +307,7 @@ token: string;
 * 登陆接口
 * @param params
   */
-  export const loginApp = (params: ILogin): Promise<ILoginData> => {
+  export const loginApp = (params: LoginParams): Promise<LoginResult> => {
   return whyRequest.get("/login", params);
   };
 ```
@@ -326,7 +326,7 @@ token: string;
 
 ## 国际化配置
 
-- yarn add react-intl -D
+- pnpm i react-intl -D
 - 国际化我们使用 react-intl 同时也要兼容 antd,的之类插件的中英文，我们在切换语言的时候插件库也要直接进行切换到对应的语言，配置起来也很方便，
 - 我们直接上代码
 

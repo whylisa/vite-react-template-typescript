@@ -1,3 +1,3 @@
-import IconSelect from "./IconSelect";
+import IconSelect from './IconSelect';
 
 export default IconSelect;

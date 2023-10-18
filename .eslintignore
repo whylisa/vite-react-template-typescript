@@ -1,0 +1,7 @@
+dist/
+build/
+locales/
+es/
+.snapshots/
+*.js
+.temp

@@ -1,5 +1,44 @@
-node_modules
-.DS_Store
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+**/node_modules
+
+# production
 dist
+es
+.temp
+.tmp
 dist-ssr
+
+# misc
+.DS_Store
+npm-debug.log*
+yarn-error.log
+
+/coverage
+.idea
+package-lock.json
+*bak
+
+
+# visual studio code
+.vscode
+.history
+*.log
+functions/*
+.temp/**
+.swc
+
+# screenshot
+screenshot
+.firebase
+.eslintcache
+
+build
 *.local
+*.d.ts
+
+stats.html
+stats_rollup.html
+stats_vite.html
+*stats.html

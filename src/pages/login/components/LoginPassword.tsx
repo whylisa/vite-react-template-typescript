@@ -1,84 +1,49 @@
-import React from "react";
-import { Form, Input, Button, message } from "antd";
-import { Link, useHistory } from "react-router-dom";
-import { loginApp } from "../../../services/login";
-import styles from "../index.module.less";
-import { ILoginParams } from "./LoginMessage";
+import React from 'react';
+import { Form, Input, Button, message } from 'antd';
+import { Link, useNavigate } from 'react-router-dom';
+import type { LoginParams } from '@/services/login';
+import { loginApp } from '@/services/login';
+import styles from './LoginPassword.module.less';
 
 /**
  * 密码登录
- *
  */
-const LoginPassword: React.FC<ILoginParams> = ({ updateWay }) => {
-  const history = useHistory();
+const LoginPassword: React.FC = () => {
+  const navigate = useNavigate();
 
-  function handleFinish(data: { [name: string]: any }) {
-    loginApp({ userName: "why", pwd: "123" }).then((res) => {
-      if (res.code === 200) {
-        sessionStorage.setItem("token", "我有权限了");
-        history.push("/home");
-      } else {
-        message.error("用户名或密码错误！");
-      }
-    });
-  }
+  async function handleFinish(data: LoginParams) {
+    const res = await loginApp(data);
 
-  function handleClick() {
-    updateWay("message");
+    if (res.code === 200) {
+      sessionStorage.setItem('token', res.token);
+      navigate('/home', { replace: true });
+      return;
+    }
+    message.error('用户名或密码错误！');
   }
 
   return (
     <div className={styles.content}>
       <div className={styles.header}>
-        <div className={styles.loginTitle}>登陆</div>
-        <div
-          onClick={handleClick}
-          className={styles.changeWay}
-          style={{ width: 99, textAlign: "right" }}
-        >
-          验证码登陆
-        </div>
+        <div className={styles.loginTitle}>登录</div>
       </div>
       <Form onFinish={handleFinish}>
         <Form.Item
-          name="user_info"
-          rules={[{ required: true, message: "用户名/手机号/邮箱不能为空" }]}
+          name="username"
+          rules={[{ required: true, message: '用户名/手机号/邮箱不能为空' }]}
         >
-          <Input
-            className={styles.input}
-            placeholder={"用户名/手机号/邮箱"}
-            maxLength={128}
-            size="large"
-          />
+          <Input placeholder={'用户名/手机号/邮箱'} maxLength={128} size="large" />
         </Form.Item>
-        <Form.Item
-          name="user_check"
-          rules={[{ required: true, message: "密码不能为空" }]}
-        >
-          <Input
-            className={styles.input}
-            type="password"
-            placeholder="密码"
-            maxLength={128}
-            size="large"
-          />
+        <Form.Item name="user_check" rules={[{ required: true, message: '密码不能为空' }]}>
+          <Input type="password" placeholder="密码" maxLength={128} size="large" />
         </Form.Item>
         <div className={styles.toolBox}>
-          <Link
-            to="/forget-password"
-            style={{ width: 105, textAlign: "right" }}
-          >
+          <Link to="/forget-password" style={{ width: 100, textAlign: 'right' }}>
             忘记密码
           </Link>
         </div>
-        <Button
-          className={styles.loginButton}
-          type="primary"
-          htmlType="submit"
-          size="large"
-          block
-        >
-          登陆
+        <Button className={styles.loginButton} type="primary" htmlType="submit" size="large" block>
+          登录
         </Button>
         <div className={styles.register}>
           <Link to="/register">注册</Link>
